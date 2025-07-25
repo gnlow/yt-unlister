@@ -12,7 +12,6 @@
     "use strict"
 
     const onLoad = () => {
-        alert("load")
         const newLoc = window.location.search
           .replace(/(?<=[?&])list=[^&]+/, "")
           .replace("&&", "&")
