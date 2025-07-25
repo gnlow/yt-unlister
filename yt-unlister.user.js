@@ -1,11 +1,10 @@
 // ==UserScript==
 // @name         yt-unlister
-// @namespace    http://tampermonkey.net/
+// @namespace    gnlow
 // @version      0.1.0
 // @description  Intercepts YouTube URL changes to remove the 'list' parameter.
 // @author       Gnlow
-// @match        *://*.youtube.com/*
-// @grant        none
+// @match        https://www.youtube.com/*
 // ==/UserScript==
 
 (function() {
@@ -23,12 +22,12 @@
         onLoad()
     })
 
-    let lastUrl = location.href
+    let lastUrl = window.location.href
     new MutationObserver(() => {
-        const url = location.href
-        if (url !== lastUrl) {
+        const url = window.location.href
+        if (url != lastUrl) {
             lastUrl = url
             onLoad()
         }
     }).observe(document, {subtree: true, childList: true})
-})
+})()
