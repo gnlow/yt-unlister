@@ -1,0 +1,2 @@
+# yt-unlister
+remove &list=
